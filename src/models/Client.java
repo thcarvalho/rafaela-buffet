@@ -4,13 +4,13 @@ public class Client {
     private String CPF;
     private String name;
     private String email;
-    //Endereco?
+    private String tel;
 
-
-    public Client(String CPF, String name, String email) {
+    public Client(String CPF, String name, String email, String tel) {
         this.CPF = CPF;
         this.name = name;
         this.email = email;
+        this.tel = tel;
     }
 
     public String getCPF() {
@@ -35,5 +35,18 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    @Override
+    public String toString() {
+        return name + "," + CPF + "," + email + "," + tel;
     }
 }

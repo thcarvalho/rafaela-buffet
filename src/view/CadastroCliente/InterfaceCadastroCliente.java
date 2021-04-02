@@ -1,4 +1,4 @@
-package view;
+package view.CadastroCliente;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -13,7 +13,6 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
-import controller.CadastroCliente;
 
 public class InterfaceCadastroCliente extends JFrame {
 

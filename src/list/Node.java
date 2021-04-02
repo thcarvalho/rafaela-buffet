@@ -1,10 +1,10 @@
-package util;
+package list;
 
 public class Node<T> {
-    public T data;
-    public Node<T> next;
+	public T data;
+	public Node<T> next;
 
-    
+
 	public T getData() {
 		return data;
 	}
@@ -21,5 +21,5 @@ public class Node<T> {
 		this.next = next;
 	}
 
-   
+
 }
