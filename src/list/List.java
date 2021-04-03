@@ -25,6 +25,30 @@ public class List<T> {
 		return sb.toString();
 	}
 
+	public void remove(T data) throws Exception {
+		if (length == 0) {
+			throw new Exception("Lista vazia");
+		}
+
+		if (length == 1) {
+			head = null;
+			length--;
+			return;
+		}
+
+		Node<T> current = head;
+		while (current != null) {
+			if (current.getData().equals(data)) {
+				Node<T> temp = current.getNext();
+				current.setNext(temp.getNext());
+				return;
+			}
+			current = current.getNext();
+		}
+
+		throw new Exception("Elemento não encontrado");
+	}
+
 	// ------Checando se o CPF já foi cadastrado
 //    public boolean consultaCpf(String cpf, String data) {
 //

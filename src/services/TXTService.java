@@ -43,6 +43,16 @@ public class TXTService<T> {
 		return modelList;
 	}
 
+	public void delete(T model) {
+		try {
+			store.remove(model.toString());
+			save();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	public boolean fileExists() {
 		File f = new File(fileName);
 		return f.exists();
