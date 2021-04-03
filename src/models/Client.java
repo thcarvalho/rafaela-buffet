@@ -49,4 +49,12 @@ public class Client {
 	public String toString() {
 		return name + "," + CPF + "," + email + "," + tel;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Client)) {
+			return false;
+		}
+		return CPF.equals(((Client) obj).CPF);
+	}
 }
