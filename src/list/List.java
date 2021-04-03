@@ -2,13 +2,14 @@ package list;
 
 public class List<T> {
 	private Node<T> head;
+	public int length;
 
 	// -------Colocando dados na Lista
-	public void add(T dados) {
-		Node<T> node = new Node<>();
-		node.setData(dados);
+	public void add(T data) {
+		Node<T> node = new Node<>(data);
 		node.setNext(head);
 		head = node;
+		length++;
 	}
 
 	// ---------Lista Completa
