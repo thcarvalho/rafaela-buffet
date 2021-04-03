@@ -46,7 +46,7 @@ public class CadastroCliente implements ActionListener {
 		client.setEmail(Email);
 		client.setTel(Tel);
 
-		// -- Temporário - Visualizar criar e visualizar Lista:
+		// -- Temporario - Visualizar criar e visualizar Lista:
 		list.add(client.toString());
 		System.out.println(list.toString());
 

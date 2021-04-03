@@ -47,7 +47,7 @@ public class CadastroTemas implements ActionListener {
 		tema.setDescricao(DescricaoTema);
 		tema.setValue(Value);
 
-		// -- Temporário - Visualizar criar e visualizar Lista:
+		// -- Temporario - Visualizar criar e visualizar Lista:
 		list.add(tema.toString());
 		System.out.println(list.toString());
 
