@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -84,8 +85,8 @@ public class InterfaceCadastroTemas extends JFrame {
 		
 		FundoTema = new JLabel("");
 		FundoTema.setBackground(SystemColor.menu);
-		Image img = new ImageIcon(this.getClass().getResource("/CadastroTema.png")).getImage();
-        FundoTema.setIcon(new ImageIcon(img));
+		Icon img = new ImageIcon("img/CadastroTema.png");
+        FundoTema.setIcon(img);
 		FundoTema.setBounds(0, 0, 498, 454);
 		contentPane.add(FundoTema);	
 		

@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JFormattedTextField;
 import java.awt.Color;
+
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -95,8 +97,8 @@ public class InterfaceCadastroCliente extends JFrame {
 	
 		FundoCliente = new JLabel("");
 		FundoCliente.setBackground(SystemColor.menu);
-		Image img = new ImageIcon(this.getClass().getResource("/CadastroCliente.jpg")).getImage();
-        FundoCliente.setIcon(new ImageIcon(img));
+		Icon img = new ImageIcon("img/CadastroCliente.jpg");
+        FundoCliente.setIcon(img);
 		FundoCliente.setBounds(0, 0, 498, 454);
 		contentPane.add(FundoCliente);	
 		
