@@ -45,16 +45,14 @@ public class CadastroCliente implements ActionListener {
 		client.setName(Nome);
 		client.setEmail(Email);
 		client.setTel(Tel);
-
-		// -- Temporario - Visualizar criar e visualizar Lista:
 		list.add(client.toString());
-		System.out.println(list.toString());
 
 		// ----------Esvaziar Campos
-		this.Nome.setText(" ");
-		this.CPF.setText(" ");
-		this.Email.setText(" ");
-		this.Tel.setText(" ");
+		this.Nome.setText("");
+		this.CPF.setText("");
+		this.Email.setText("");
+		this.Tel.setText("");
+
 	}
 
 }

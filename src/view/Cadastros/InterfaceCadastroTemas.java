@@ -1,5 +1,4 @@
 package view.Cadastros;
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,8 +12,9 @@ import javax.swing.JTextArea;
 import javax.swing.JFormattedTextField;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.SystemColor;
+import java.util.Formatter;
+
 
 public class InterfaceCadastroTemas extends JFrame {
 
@@ -26,9 +26,9 @@ public class InterfaceCadastroTemas extends JFrame {
 	private JFormattedTextField ValorTema;
 	private JTextArea DescricaoTema;
 	private JLabel FundoTema;
-    
+	
 
-	public static void main(String[] args) {
+	public void Start() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -58,6 +58,7 @@ public class InterfaceCadastroTemas extends JFrame {
 		DescricaoTema = new JTextArea();
 		DescricaoTema.setBounds(182, 181, 272, 68);
 		contentPane.add(DescricaoTema);
+		
 		
 		ValorTema = new JFormattedTextField();
 		ValorTema.setBounds(225, 280, 88, 33);
@@ -92,6 +93,7 @@ public class InterfaceCadastroTemas extends JFrame {
 		
 		CadastroTemas cmd = new CadastroTemas(Nome,DescricaoTema,ValorTema);
 		CadastrarTema.addActionListener(cmd);	
+		SairTemas.addActionListener(cmd);
 		
 	}
 }

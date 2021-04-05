@@ -4,13 +4,14 @@ public class Temas {
 
 	private String nome;
 	private String descricao;;
-	private int value;
+	private String value;
 
-	public Temas(String nome, String descricao, int value) {
+	public Temas(String nome, String descricao, String value) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.value = value;
 	}
+
 
 	public String getNome() {
 		return nome;
@@ -28,11 +29,11 @@ public class Temas {
 		this.descricao = descricao;
 	}
 
-	public int getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 
