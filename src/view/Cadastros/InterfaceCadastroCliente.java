@@ -28,12 +28,13 @@ public class InterfaceCadastroCliente extends JFrame {
 	private JLabel FundoCliente;
 	
 
-	public void interfaceCadastroCliente(){
+	public void Start(){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					InterfaceCadastroCliente frame = new InterfaceCadastroCliente();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,6 +51,7 @@ public class InterfaceCadastroCliente extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+        
 			
 		Nome = new JFormattedTextField();
 		Nome.setForeground(Color.BLACK);

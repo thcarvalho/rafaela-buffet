@@ -13,8 +13,6 @@ import javax.swing.JFormattedTextField;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
-import java.util.Formatter;
-
 
 public class InterfaceCadastroTemas extends JFrame {
 
@@ -34,6 +32,7 @@ public class InterfaceCadastroTemas extends JFrame {
 				try {
 					InterfaceCadastroTemas frame = new InterfaceCadastroTemas();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,7 +57,7 @@ public class InterfaceCadastroTemas extends JFrame {
 		DescricaoTema = new JTextArea();
 		DescricaoTema.setBounds(182, 181, 272, 68);
 		contentPane.add(DescricaoTema);
-		
+			
 		
 		ValorTema = new JFormattedTextField();
 		ValorTema.setBounds(225, 280, 88, 33);
@@ -93,7 +92,7 @@ public class InterfaceCadastroTemas extends JFrame {
 		
 		CadastroTemas cmd = new CadastroTemas(Nome,DescricaoTema,ValorTema);
 		CadastrarTema.addActionListener(cmd);	
-		SairTemas.addActionListener(cmd);
+	
 		
 	}
 }

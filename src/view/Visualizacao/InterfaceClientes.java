@@ -33,6 +33,7 @@ public class InterfaceClientes extends JFrame {
 				try {
 					InterfaceClientes frame = new InterfaceClientes();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

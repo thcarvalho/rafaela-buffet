@@ -1,22 +1,29 @@
 package controllers;
 
+import javax.swing.JOptionPane;
+
 import list.List;
 import models.Client;
 import services.TXTService;
+import javax.swing.JOptionPane;
 
 public class ClientController {
-    private TXTService<Client> txtService;
+    private TXTService<String> txtService;
 
-    public ClientController(TXTService<Client> txtService) {
-        this.txtService = txtService;
+    public ClientController(TXTService<String> txts) {
+        this.txtService = txts;
     }
 
     public void create(Client client) {
-        // Dá pra colocar a lógica de verificar CPF aqui
+       if(consultacpf(client.getCPF(),txtService.read())) {
+    	  JOptionPane.showMessageDialog(null,"Cliente j� Cadastrado!");  
+       }
+       else {
         txtService.create(client);
+       }
     }
 
-    public List<Client> read() {
+	public List<Client> read() {
         List<String> clientTXT = txtService.read();
         List<Client> clients = new List<>();
 
@@ -63,4 +70,15 @@ public class ClientController {
             e.printStackTrace();
         }
     }
+    
+
+   	public boolean consultacpf(String cpf, List<String> list) {
+   		if (list.toString().contains(cpf)){
+   			return true;
+   		}
+   		else {
+   		   return false;
+   		}
+   	}
+   	
 }

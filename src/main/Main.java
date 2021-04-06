@@ -1,25 +1,12 @@
 package main;
-import controllers.ClientController;
-import list.List;
-import view.Cadastros.InterfaceCadastroTemas;
-import models.Client;
-import services.TXTService;
+import view.Cadastros.InterfaceCadastroCliente;
 
 public class Main {
 	public static void main(String[] args) {
 		
-		//TXTService<Client> txtService = new TXTService<>("client.txt");
-		//ClientController clientController = new ClientController(txtService);
-		
-		//Client client = new Client("123123123", "Teste", "teste@teste", "1123452345");
-		//clientController.create(client);
-		//List<String> list = txtService.read();
-	    //	System.out.println(list.toString());
-		//clientController.delete("123123123");
-		
-		InterfaceCadastroTemas cadastrotemas = new InterfaceCadastroTemas();
-		cadastrotemas.Start();
-		
+		InterfaceCadastroCliente cadastrartemas = new InterfaceCadastroCliente();
+        cadastrartemas.Start();
+	
 	    	
 	}
 }

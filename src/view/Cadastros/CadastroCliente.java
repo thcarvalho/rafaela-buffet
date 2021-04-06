@@ -3,8 +3,10 @@ package view.Cadastros;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFormattedTextField;
+import controllers.ClientController;
+import services.TXTService;
 import models.Client;
-import list.List;
+
 
 public class CadastroCliente implements ActionListener {
 
@@ -12,11 +14,11 @@ public class CadastroCliente implements ActionListener {
 	private JFormattedTextField CPF;
 	private JFormattedTextField Email;
 	private JFormattedTextField Tel;
-
-//---------------------------------------------
-	List<String> list = new List<String>();
-//---------------------------------------------   
-
+	
+	TXTService<String> txtclient = new TXTService<String>("client.txt");
+	ClientController clientcontroller = new ClientController(txtclient);
+	
+	
 	public CadastroCliente(JFormattedTextField nome, JFormattedTextField cpf, JFormattedTextField email,
 			JFormattedTextField tel) {
 		Nome = nome;
@@ -40,14 +42,16 @@ public class CadastroCliente implements ActionListener {
 	public void adicionar(String CPF, String Nome, String Tel, String Email) {
 
 		// -------Dispondo dados do cliente
+		
 		Client client = new Client(CPF, Nome, Email, Tel);
 		client.setCPF(CPF);
 		client.setName(Nome);
 		client.setEmail(Email);
 		client.setTel(Tel);
-		list.add(client.toString());
+        clientcontroller.create(client);
 
 		// ----------Esvaziar Campos
+        
 		this.Nome.setText("");
 		this.CPF.setText("");
 		this.Email.setText("");

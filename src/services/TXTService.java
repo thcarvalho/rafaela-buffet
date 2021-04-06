@@ -1,6 +1,7 @@
 package services;
 
 import list.List;
+import models.Client;
 import java.io.*;
 
 public class TXTService<T> {
@@ -20,8 +21,8 @@ public class TXTService<T> {
 		}
 	}
 
-	public void create(T model) {
-		store.add(model.toString());
+	public void create(Client client) {
+		store.add(client.toString());
 		save();
 	}
 
@@ -41,10 +42,11 @@ public class TXTService<T> {
 		}
 		return modelList;
 	}
+	
 
-	public void delete(T model) {
+	public void delete(Client client) {
 		try {
-			store.remove(model.toString());
+			store.remove(client.toString());
 			save();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,4 +58,5 @@ public class TXTService<T> {
 		File f = new File(fileName);
 		return f.exists();
 	}
+	
 }

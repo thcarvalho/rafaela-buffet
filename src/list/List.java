@@ -1,10 +1,13 @@
 package list;
 
+import controllers.ClientController;
+
 public class List<T> {
 	private Node<T> head;
 	public int length;
 
 	// -------Colocando dados na Lista
+	
 	public void add(T data) {
 		Node<T> node = new Node<>(data);
 		node.setNext(head);
@@ -13,6 +16,7 @@ public class List<T> {
 	}
 
 	// ---------Lista Completa
+	
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
@@ -25,6 +29,8 @@ public class List<T> {
 		return sb.toString();
 	}
 
+	//--------Remove dados da Lista
+	
 	public void remove(T data) throws Exception {
 		if (length == 0) {
 			throw new Exception("Lista vazia");
@@ -49,14 +55,6 @@ public class List<T> {
 		throw new Exception("Elemento não encontrado");
 	}
 
-	// ------Checando se o CPF já foi cadastrado
-//    public boolean consultaCpf(String cpf, String data) {
-//
-//        if (data.contains(cpf)) {
-//            JOptionPane.showMessageDialog(null, "CPF cadastrado!");
-//            return false;
-//        }
-//        return true;
-//    }
+
 
 }
