@@ -48,7 +48,7 @@ public class Client {
 	
 	@Override
 	public String toString() {
-		return name + "," + CPF + "," + email + ","+ tel;
+		return name + "," + CPF + "," + email + ","+ tel + ",";
 	}
 
 	

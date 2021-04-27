@@ -24,6 +24,7 @@ public class ClientController {
     }
 
 	public List<Client> read() {
+		
         List<String> clientTXT = txtService.read();
         List<Client> clients = new List<>();
 
@@ -42,13 +43,14 @@ public class ClientController {
         return clients;
     }
 
-    public Client getByCPF(String CPF) throws Exception {
+	
+    public Client getByName(String nome) throws Exception {
         List<Client> clientsList = read();
         String[] clients = clientsList.toString().split("\n");
         Client client;
 
         for (String line : clients) {
-            if (line.contains(CPF)) {
+            if (line.contains(nome)) {
                 String[] data = line.split(",");
                 String name = data[0];
                 String cpf = data[1];
@@ -61,10 +63,11 @@ public class ClientController {
 
         throw new Exception("Cliente não encontrado");
     }
-
-    public void delete(String CPF) {
+    
+	 
+    public void delete(String name) {
         try {
-            Client client = getByCPF(CPF);
+            Client client = getByName(name);
             txtService.delete(client);
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,5 +83,7 @@ public class ClientController {
    		   return false;
    		}
    	}
+   	
+   	
    	
 }
