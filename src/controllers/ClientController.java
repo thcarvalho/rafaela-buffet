@@ -1,22 +1,22 @@
 package controllers;
 
 import javax.swing.JOptionPane;
-
 import list.List;
 import models.Client;
 import services.TXTService;
 import javax.swing.JOptionPane;
 
 public class ClientController {
-    private TXTService<String> txtService;
+	
+    private TXTService<Client> txtService;
 
-    public ClientController(TXTService<String> txts) {
+    public ClientController(TXTService<Client> txts) {
         this.txtService = txts;
     }
 
     public void create(Client client) {
        if(consultacpf(client.getCPF(),txtService.read())) {
-    	  JOptionPane.showMessageDialog(null,"Cliente já Cadastrado!");  
+    	  JOptionPane.showMessageDialog(null,"Cliente jï¿½ Cadastrado!");  
        }
        else {
         txtService.create(client);
@@ -30,14 +30,7 @@ public class ClientController {
 
         String[] lines = clientTXT.toString().split("\n");
         for (String line : lines) {
-            String[] data = line.split(",");
-            String name = data[0];
-            String CPF = data[1];
-            String email = data[2];
-            String tel = data[3];
-
-            Client client = new Client(CPF, name, email, tel);
-            clients.add(client);
+            clients.add(stringToClient(line));
         }
 
         return clients;
@@ -47,24 +40,16 @@ public class ClientController {
     public Client getByName(String nome) throws Exception {
         List<Client> clientsList = read();
         String[] clients = clientsList.toString().split("\n");
-        Client client;
 
         for (String line : clients) {
             if (line.contains(nome)) {
-                String[] data = line.split(",");
-                String name = data[0];
-                String cpf = data[1];
-                String email = data[2];
-                String tel = data[3];
-                client = new Client(cpf, name, email, tel);
-                return client;
+                return stringToClient(line);
             }
         }
 
         throw new Exception("Cliente nÃ£o encontrado");
     }
-    
-	 
+
     public void delete(String name) {
         try {
             Client client = getByName(name);
@@ -73,17 +58,19 @@ public class ClientController {
             e.printStackTrace();
         }
     }
-    
+
 
    	public boolean consultacpf(String cpf, List<String> list) {
-   		if (list.toString().contains(cpf)){
-   			return true;
-   		}
-   		else {
-   		   return false;
-   		}
+   		return list.toString().contains(cpf);
    	}
-   	
-   	
-   	
+
+    private Client stringToClient(String line){
+        if (line.isEmpty()) return new Client();
+        String[] data = line.split(",");
+        String name = data[0];
+        String cpf = data[1];
+        String email = data[2];
+        String tel = data[3];
+        return new Client(cpf, name, email, tel);
+    }
 }

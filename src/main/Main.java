@@ -1,15 +1,19 @@
 package main;
-import view.Cadastros.InterfaceCadastroCliente;
-import view.Visualizacao.*;
+import view.Client.InterfaceCadastroCliente;
+import view.Client.EditClientes;
+import view.Agendamentos.InterfaceAgendamentos;
 
 public class Main {
 	public static void main(String[] args) {
 		
-		//InterfaceCadastroCliente cadastrarclientes = new InterfaceCadastroCliente();
-        //cadastrarclientes.Start();
+	 // InterfaceCadastroCliente cadastrarclientes = new InterfaceCadastroCliente();
+     // cadastrarclientes.Start();
 		
-		//InterfaceClientes clientes = new InterfaceClientes();
-		//clientes.start();
+	//  EditClientes clientes = new EditClientes();
+	//  clientes.start();
+		
+	    InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
+	    agendamentos.Start();
 	    	
 	}
 }

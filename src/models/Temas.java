@@ -6,6 +6,8 @@ public class Temas {
 	private String descricao;;
 	private String value;
 
+	public Temas() { }
+
 	public Temas(String nome, String descricao, String value) {
 		this.nome = nome;
 		this.descricao = descricao;

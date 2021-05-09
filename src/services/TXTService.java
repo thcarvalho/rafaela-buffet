@@ -21,8 +21,8 @@ public class TXTService<T> {
 		}
 	}
 
-	public void create(Client client) {
-		store.add(client.toString());
+	public void create(T model) {
+		store.add(model.toString());
 		save();
 	}
 
@@ -44,9 +44,9 @@ public class TXTService<T> {
 	}
 	
 
-	public void delete(Client client) {
+	public void delete(T model) {
 		try {
-			store.remove(client.toString());
+			store.remove(model.toString());
 			save();
 		} catch (Exception e) {
 			e.printStackTrace();

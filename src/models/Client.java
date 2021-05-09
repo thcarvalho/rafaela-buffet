@@ -6,6 +6,8 @@ public class Client {
 	private String email;
 	private String tel;
 
+	public Client() { }
+
 	public Client(String CPF, String name, String email, String tel) {
 		this.CPF = CPF;
 		this.name = name;
@@ -51,5 +53,8 @@ public class Client {
 		return name + "," + CPF + "," + email + ","+ tel + ",";
 	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+		return (this.name.equals(((Client) obj).name));
+	}
 }
