@@ -1,4 +1,4 @@
-package view.Cadastros;
+package view.Client;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +15,7 @@ public class CadastroCliente implements ActionListener {
 	private JFormattedTextField Email;
 	private JFormattedTextField Tel;
 	
-	TXTService<String> txtclient = new TXTService<String>("client.txt");
+	TXTService<Client> txtclient = new TXTService<>("client.txt");
 	ClientController clientcontroller = new ClientController(txtclient);
 	
 	

@@ -1,5 +1,6 @@
-package view.Visualizacao;
+package view.Client;
 import controllers.ClientController;
+import models.Client;
 import services.TXTService;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -18,7 +19,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class InterfaceClientes extends JFrame {
+public class EditClientes extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -32,7 +33,7 @@ public class InterfaceClientes extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceClientes frame = new InterfaceClientes();
+					EditClientes frame = new EditClientes();
 					frame.setVisible(true);
 					frame.setResizable(false);
 				} catch (Exception e) {
@@ -43,9 +44,9 @@ public class InterfaceClientes extends JFrame {
 	}
 
 
-	public InterfaceClientes() {
+	public EditClientes() {
 		
-		TXTService<String> txtclient = new TXTService<String>("client.txt");
+		TXTService<Client> txtclient = new TXTService<>("client.txt");
 		ClientController clientcontroller = new ClientController(txtclient);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,14 +57,10 @@ public class InterfaceClientes extends JFrame {
 		contentPane.setLayout(null);
 		
 		Cliente = new JComboBox <String>();
-		 String select[] = clientcontroller.read().toString().split(",");
-		 int cont = 4;
+		 String select[] = clientcontroller.read().toString().split("\n");
      	 for(String n: select) {	
-     	  if(cont == 4) {
-		    Cliente.addItem(n);  
-		    cont = 0;
-     	  }
-     	  cont +=1;  
+			String clients[] = n.split(",");
+			 Cliente.addItem(clients[0]);
 		  }
 
 		 Cliente.addActionListener(new ActionListener() {
@@ -117,13 +114,13 @@ public class InterfaceClientes extends JFrame {
 		contentPane.add(FundoExibirCliente);
 	  }
 	
-	
      
-	  public String setinfos() {
-		 TXTService<String> txtclient = new TXTService<String>("client.txt");
-	     ClientController clientcontroller = new ClientController(txtclient);
+	  public String setinfos() {		  
+		 TXTService<Client> txtclient = new TXTService<>("client.txt");
+	     ClientController clientcontroller = new ClientController(txtclient);  
 		 String selectinfo[] = clientcontroller.read().toString().split(",");
-		 StringBuffer info = new StringBuffer();
+		 StringBuffer info = new StringBuffer();	
+		 
 		 int cont2 = 4; 
     	 for(String n: selectinfo) {	
     	  if(n.contains(Cliente.getSelectedItem().toString().trim()) || cont2 != 4) {

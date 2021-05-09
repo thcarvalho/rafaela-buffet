@@ -1,4 +1,4 @@
-package view.Cadastros;
+package view.Client;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
