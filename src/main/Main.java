@@ -13,11 +13,11 @@ public class Main {
 	//  EditClientes clientes = new EditClientes();
 	//  clientes.start();
 		
-	//    InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
-	//    agendamentos.Start();
+	    InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
+	    agendamentos.Start();
 	    	
-	   InterfaceCadastroTemas temas = new InterfaceCadastroTemas();
-	   temas.Start();
+	//   InterfaceCadastroTemas temas = new InterfaceCadastroTemas();
+	//   temas.Start();
 	    
 	}
 }
