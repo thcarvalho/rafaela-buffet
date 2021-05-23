@@ -5,13 +5,15 @@ public class Agendamentos {
 	private String tema;
 	private String data;
 	private String horario;
+	private String endereco;
 	
-	public Agendamentos(String client, String tema,String data, String horario) {
+	public Agendamentos(String client, String tema,String data, String horario, String endereco) {
 		super();
 		this.client = client;
 		this.tema = tema;
 		this.data = data;
 		this.horario = horario;
+		this.endereco = endereco;
 			
 	}
 
@@ -47,9 +49,18 @@ public class Agendamentos {
 		this.tema = tema;
 	}
 	
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return client + "," + tema + "," + data + ","+ horario + ",";
+		return client + "," + tema + "," + data + ","+ horario + "," + endereco + ",";
 	}
 
 

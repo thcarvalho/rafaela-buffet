@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import controllers.TemasController;
@@ -24,6 +26,7 @@ import models.Temas;
 import services.TXTService;
 
 
+@SuppressWarnings("unused")
 public class EditTemas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -38,6 +41,7 @@ public class EditTemas extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					EditTemas frame = new EditTemas();
 					frame.setVisible(true);
 					frame.setResizable(false);
@@ -53,7 +57,7 @@ public class EditTemas extends JFrame {
 		
 		TXTService<Temas> txtclient = new TXTService<>("temas.txt");
 		TemasController temascontroller = new TemasController(txtclient);
-		
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 514, 493);
 		contentPane = new JPanel();

@@ -12,7 +12,7 @@ public class AgendamentosController {
     }
 	
 	 private TXTService<Agendamentos> txtService;
-	 public void create(Agendamentos agendamentos) {
+	  public void create(Agendamentos agendamentos) {
 		  if(consultaagendamentos(agendamentos.getData(), agendamentos.getTema(), txtService.read())) {
 	    	  JOptionPane.showMessageDialog(null,"O mesmo Tema só pode ser Agendado uma vez por Dia!");  
 	       }
@@ -23,7 +23,12 @@ public class AgendamentosController {
 	  }
 	 
 		public boolean consultaagendamentos(String date, String tema, List<String> list) {
-	   		return list.toString().contains(date) & list.toString().contains(tema);
+	   		if(list.toString().contains(date) && list.toString().contains(tema)) {
+	   			return true;
+	   		}
+	   		else {
+	   			return false;
+	   		}
 	   	}
 	
 }
