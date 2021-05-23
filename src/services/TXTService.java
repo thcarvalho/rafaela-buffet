@@ -2,6 +2,8 @@ package services;
 
 import list.List;
 import models.Client;
+import models.Temas;
+
 import java.io.*;
 
 public class TXTService<T> {
@@ -58,5 +60,7 @@ public class TXTService<T> {
 		File f = new File(fileName);
 		return f.exists();
 	}
+
+
 	
 }

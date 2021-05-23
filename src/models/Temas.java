@@ -41,7 +41,7 @@ public class Temas {
 
 	@Override
 	public String toString() {
-		return nome + "," + descricao + "," + value;
+		return nome + "," + descricao + "," + value + ",";
 	}
 
 }

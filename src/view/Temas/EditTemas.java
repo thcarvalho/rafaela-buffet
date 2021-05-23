@@ -1,39 +1,44 @@
-package view.Client;
-import controllers.ClientController;
-import models.Client;
-import services.TXTService;
+package view.Temas;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
 
-public class EditClientes extends JFrame {
+import controllers.TemasController;
+import models.Temas;
+import services.TXTService;
+
+
+public class EditTemas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextArea InfoCliente;
-	private JComboBox <String> Cliente;
+	private JTextArea InfoTema;
+	private JComboBox <String> Temas;
 	private JButton Excluir;
 	private JButton Sair;
-	private JLabel FundoExibirCliente;
+	private JLabel FundoExibirTemas;
 
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EditClientes frame = new EditClientes();
+					EditTemas frame = new EditTemas();
 					frame.setVisible(true);
 					frame.setResizable(false);
 				} catch (Exception e) {
@@ -44,10 +49,10 @@ public class EditClientes extends JFrame {
 	}
 
 
-	public EditClientes() {
+	public EditTemas() {
 		
-		TXTService<Client> txtclient = new TXTService<>("client.txt");
-		ClientController clientcontroller = new ClientController(txtclient);
+		TXTService<Temas> txtclient = new TXTService<>("temas.txt");
+		TemasController temascontroller = new TemasController(txtclient);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 514, 493);
@@ -56,34 +61,34 @@ public class EditClientes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		Cliente = new JComboBox <String>();
-		 String select[] = clientcontroller.read().toString().split("\n");
+		Temas = new JComboBox <String>();
+		 String select[] = temascontroller.read().toString().split("\n");
      	 for(String n: select) {	
-			String clients[] = n.split(",");
-			 Cliente.addItem(clients[0]);
+			String temas[] = n.split(",");
+			 Temas.addItem(temas[0]);
 		  }
 
-		 Cliente.addActionListener(new ActionListener() {
+		 Temas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 setinfos();
 				}
 			});
 		
-		Cliente.setBounds(83, 176, 324, 22);
-		contentPane.add(Cliente);
+		Temas.setBounds(83, 176, 324, 22);
+		contentPane.add(Temas);
 		
 		
-		InfoCliente = new JTextArea();
-		InfoCliente.setBounds(83, 269, 324, 99);
-		contentPane.add(InfoCliente);
+		InfoTema = new JTextArea();
+		InfoTema.setBounds(83, 269, 324, 99);
+		contentPane.add(InfoTema);
 		
 	    Excluir = new JButton("Excluir");
 	    Excluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			 clientcontroller.delete(Cliente.getSelectedItem().toString().trim());
-			 JOptionPane.showMessageDialog(null,setinfos()+"\nCliente Excluido!");
-			 InfoCliente.setText(" ");
-			 	 
+			 temascontroller.delete(Temas.getSelectedItem().toString().trim());
+			 JOptionPane.showMessageDialog(null,setinfos()+"\nTema Excluido!");
+			 InfoTema.setText(" ");
+			 
 			}
 		});
 		
@@ -108,23 +113,23 @@ public class EditClientes extends JFrame {
 		contentPane.add(Sair);
 
 		
-		FundoExibirCliente = new JLabel("");
-		Icon img = new ImageIcon("img/VisualizarClientes.png");
-		FundoExibirCliente.setIcon(img);
-		FundoExibirCliente.setBounds(0, 0, 498, 454);
-		contentPane.add(FundoExibirCliente);
+		FundoExibirTemas = new JLabel("");
+		Icon img = new ImageIcon("img/VisualizarTema.png");
+		FundoExibirTemas.setIcon(img);
+		FundoExibirTemas.setBounds(0, 0, 498, 454);
+		contentPane.add(FundoExibirTemas);
 	  }
 	
      
 	  public String setinfos() {		  
-		 TXTService<Client> txtclient = new TXTService<>("client.txt");
-	     ClientController clientcontroller = new ClientController(txtclient);  
-		 String selectinfo[] = clientcontroller.read().toString().split(",");
+		 TXTService<Temas> txtclient = new TXTService<>("temas.txt");
+	     TemasController temascontroller = new TemasController(txtclient);  
+		 String selectinfo[] = temascontroller.read().toString().split(",");
 		 StringBuffer info = new StringBuffer();	
 		 
 		 int cont2 = 4; 
     	 for(String n: selectinfo) {	
-    	  if(n.contains(Cliente.getSelectedItem().toString().trim()) || cont2 != 4) {
+    	  if(n.contains(Temas.getSelectedItem().toString().trim()) || cont2 != 4) {
 		    info.append("\n"+n);
 		    cont2 -= 1;
 		    if(cont2 == 0) {
@@ -132,10 +137,9 @@ public class EditClientes extends JFrame {
 		    }
     	  }
 		  }
-	      InfoCliente.setText(info.toString().trim());
+	      InfoTema.setText(info.toString().trim());
 	      return info.toString();
 	  }  
 		
-	} 
-
-
+	 
+}

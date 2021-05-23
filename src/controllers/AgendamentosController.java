@@ -1,5 +1,7 @@
 package controllers;
 import javax.swing.JOptionPane;
+
+import list.List;
 import models.Agendamentos;
 import services.TXTService;
 
@@ -11,8 +13,17 @@ public class AgendamentosController {
 	
 	 private TXTService<Agendamentos> txtService;
 	 public void create(Agendamentos agendamentos) {
-	        txtService.create(agendamentos);
+		  if(consultaagendamentos(agendamentos.getData(), agendamentos.getTema(), txtService.read())) {
+	    	  JOptionPane.showMessageDialog(null,"O mesmo Tema só pode ser Agendado uma vez por Dia!");  
+	       }
+	       else {
+	    	 txtService.create(agendamentos);
+	       }
 	       
 	  }
+	 
+		public boolean consultaagendamentos(String date, String tema, List<String> list) {
+	   		return list.toString().contains(date) & list.toString().contains(tema);
+	   	}
 	
 }
