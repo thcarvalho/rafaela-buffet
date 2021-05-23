@@ -5,14 +5,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import controllers.TemasController;
 import models.Temas;
+import services.TXTService;
 
 public class CadastroTemas implements ActionListener {
 
 	private JTextField NomeTema;
 	private JTextArea DescricaoTema;
 	private JFormattedTextField ValorTema;
-	
+	TXTService<Temas> txttemas = new TXTService<>("temas.txt");
+	TemasController temascontroller = new TemasController(txttemas);
 
 	public CadastroTemas(JTextField nome, JTextArea descricao, JFormattedTextField value) {
 		NomeTema = nome;
@@ -44,7 +48,7 @@ public class CadastroTemas implements ActionListener {
 		temas.setNome(NomeTema);
 		temas.setDescricao(DescricaoTema);
 		temas.setValue(ValorTema);
-		
+		temascontroller.add(temas);
 
 		// ----------Esvaziar Campos
 		this.NomeTema.setText("");

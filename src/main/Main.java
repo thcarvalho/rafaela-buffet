@@ -2,6 +2,7 @@ package main;
 import view.Client.InterfaceCadastroCliente;
 import view.Client.EditClientes;
 import view.Agendamentos.InterfaceAgendamentos;
+import view.Temas.InterfaceCadastroTemas;
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,8 +13,11 @@ public class Main {
 	//  EditClientes clientes = new EditClientes();
 	//  clientes.start();
 		
-	    InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
-	    agendamentos.Start();
+	//    InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
+	//    agendamentos.Start();
 	    	
+	   InterfaceCadastroTemas temas = new InterfaceCadastroTemas();
+	   temas.Start();
+	    
 	}
 }
