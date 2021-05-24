@@ -24,6 +24,8 @@ import models.Agendamentos;
 import controllers.AgendamentosController;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
+import models.Historico;
+import controllers.historicoController;
 
 public class InterfaceAgendamentos extends JFrame {
 
@@ -98,9 +100,9 @@ public class InterfaceAgendamentos extends JFrame {
 				String temas = comboTemas.getSelectedItem().toString().trim();
 				String dt[] = calendar_1.getDate().toString().split(" ");
 				StringBuffer datas = new StringBuffer();
-				datas.append(dt[1] + " ");
+				datas.append(dt[1] + "/");
 				datas.append(dt[2] + " ");
-				datas.append(dt[5] + " ");
+				datas.append(dt[5]);
 				String data = datas.toString();
 				String hr = horario.getText();
 				String endereco = Endereco.getText();
@@ -110,7 +112,17 @@ public class InterfaceAgendamentos extends JFrame {
 				agendamentos.setData(data);
 				agendamentos.setHorario(hr);
 				agendamentocontroller.create(agendamentos);
-
+				Historico history = null;
+				try {
+					history = new Historico(clientcontroller.getByName(client).toString(), data, hr, temas);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+				TXTService<Historico> txthystory = new TXTService<>("historico.txt");
+                historicoController historyc = new historicoController(txthystory);
+                historyc.create(history);
+                
 				// ----------Esvaziar Campos
 
 				horario.setText(" ");

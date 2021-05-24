@@ -1,2 +1,3 @@
-Naruto,5 Pilastras, Mesa Redonda.,50
-Moana,6 Pilastras, Mesa Quadrada.,55
+Harry Potter,Chapel seletor, magia, sla,50,
+GOT,Preto, pratos, sla,25,
+Naruto,Laranja, Pilastras, Sla,35,

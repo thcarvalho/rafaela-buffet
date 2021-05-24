@@ -78,12 +78,12 @@ public class EditTemas extends JFrame {
 				}
 			});
 		
-		Temas.setBounds(83, 176, 324, 22);
+		Temas.setBounds(73, 156, 302, 31);
 		contentPane.add(Temas);
 		
 		
 		InfoTema = new JTextArea();
-		InfoTema.setBounds(83, 269, 324, 99);
+		InfoTema.setBounds(73, 246, 302, 104);
 		contentPane.add(InfoTema);
 		
 	    Excluir = new JButton("Excluir");
@@ -118,7 +118,7 @@ public class EditTemas extends JFrame {
 
 		
 		FundoExibirTemas = new JLabel("");
-		Icon img = new ImageIcon("img/VisualizarTema.png");
+		Icon img = new ImageIcon("img/FundoEditTema.png");
 		FundoExibirTemas.setIcon(img);
 		FundoExibirTemas.setBounds(0, 0, 498, 454);
 		contentPane.add(FundoExibirTemas);
