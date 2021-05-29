@@ -1,6 +1,8 @@
 package main;
 import view.Client.InterfaceCadastroCliente;
 import view.Client.EditClientes;
+
+import java.awt.Window.Type;
 import java.util.Calendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -8,7 +10,7 @@ import view.Temas.EditTemas;
 import view.Agendamentos.InterfaceAgendamentos;
 import view.Temas.InterfaceCadastroTemas;
 import view.Temas.EditTemas;
-import list.Ordenação;
+import controllers.DescontoController;
 
 public class Main {
 	public static void main(String[] args) {
@@ -31,14 +33,13 @@ public class Main {
 	 //  InterfaceCadastroTemas cadastrartemas = new InterfaceCadastroTemas();
 	//   cadastrartemas.Start();
 		
-		  EditTemas temas = new EditTemas();
-		  temas.start();
+	//	  EditTemas temas = new EditTemas();
+		//  temas.start();
 			
-		
-	//	Ordenação Quick = new Ordenação();
-	//	Quick.QuickSort(0);
-		
-	
+	  DescontoController desc = new DescontoController();
+	  System.out.println(desc.desconto("4444444444444"));
 		
 	}
+
+	
 }
