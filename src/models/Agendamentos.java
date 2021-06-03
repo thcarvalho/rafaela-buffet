@@ -3,12 +3,11 @@ public class Agendamentos {
 	
 	private String client;
 	private String tema;
-	private int valortema;
 	private int desconto;
 	private String data;
 	private String horario;
 	private String endereco;
-	
+	private int valortema;
    
 	
 	public Agendamentos(boolean desc) {
@@ -105,7 +104,7 @@ public class Agendamentos {
 
 	@Override
 	public String toString() {
-		return client + "," + tema + "," + valortema + "," + data + ","+ horario + "," + endereco + ",";
+		return client + "," + tema + "," + data + ","+ horario + "," + endereco + "," + valortema + ",";
 	}
 
 

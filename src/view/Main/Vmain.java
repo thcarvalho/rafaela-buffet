@@ -23,7 +23,7 @@ import java.util.Calendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import view.Temas.EditTemas;
-import view.Agendamentos.InterfaceAgendamentos;
+import controllers.historicoController;
 import view.Agendamentos.InterfaceAgendar;
 import view.Temas.InterfaceCadastroTemas;
 import view.Temas.EditTemas;
@@ -135,7 +135,6 @@ public class Vmain extends JFrame {
 		
 		agendarfesta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 		     InterfaceAgendar agendar = new InterfaceAgendar();
 		     agendar.Start();
 			}
@@ -153,8 +152,7 @@ public class Vmain extends JFrame {
 		festasagendadas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
-		    agendamentos.Start();
+			
 		    
 			}
 		});

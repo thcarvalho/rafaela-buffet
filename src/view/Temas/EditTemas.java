@@ -83,7 +83,7 @@ public class EditTemas extends JFrame {
 		
 		
 		InfoTema = new JTextArea();
-		InfoTema.setBounds(73, 246, 302, 104);
+		InfoTema.setBounds(70, 220, 302, 80);
 		contentPane.add(InfoTema);
 		
 	    Excluir = new JButton("Excluir");

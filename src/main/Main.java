@@ -3,7 +3,7 @@ import view.Main.*;
 import java.awt.Window.Type;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import view.Agendamentos.InterfaceAgendamentos;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -14,10 +14,6 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		
-	//   InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
-	 //  agendamentos.Start();
 	    
 	 Vmain main = new Vmain();
 	 main.start();

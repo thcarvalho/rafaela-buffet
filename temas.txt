@@ -1,3 +1,4 @@
-Harry Potter,Chapel seletor, magia, sla,50,
-GOT,Preto, pratos, sla,25,
+Naruto2,qualquer coisa,50,
 Naruto,Laranja, Pilastras, Sla,35,
+GOT,Preto, pratos, sla,25,
+Harry Potter,Chapel seletor, magia, sla,50,

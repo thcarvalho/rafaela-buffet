@@ -3,6 +3,7 @@ import controllers.ClientController;
 import javax.swing.JOptionPane;
 import list.List;
 import list.Ordenação;
+import models.Agendamentos;
 import models.Agendar;
 import models.Historico;
 import models.Client;
@@ -30,25 +31,26 @@ public class AgendamentosController {
         algoritmo.quickSort(vet, 0, vet.length-1);
         //Compara se o mais antigo se enquadra na regra de négócio (No mínimo 2 anos).
         if(vet[0] <= reservaAtual-2) {
-         System.out.println(vet[0]);
          return true;
         }
        }
         return false;
       }  
 	
-	public AgendamentosController(TXTService<Agendar> txts) {
-        this.txtService = txts;
-    }
+	 public AgendamentosController(TXTService<Agendar> txtagendar) {
+        this.txtService = txtagendar;
+     }
 	
 	 private TXTService<Agendar> txtService;
 	  public void create(Agendar agendamentos) {
 		  if(consultaagendamentos(agendamentos.getData(), agendamentos.getTema(), txtService.read())) {
 	    	  JOptionPane.showMessageDialog(null,"O mesmo Tema só pode ser Agendado uma vez por Dia!");  
 	       }
-	       else if(desconto(agendamentos.getClient())){
-	    	 System.out.println("entrei aqui");
-	       }
+		  else if(desconto(agendamentos.getClient())){
+             JOptionPane.showMessageDialog(null, "Cliente possui desconto!");
+			 txtService.create(agendamentos);
+			 
+		  }
 	       else{
 	    	 txtService.create(agendamentos);
 	       }
@@ -62,6 +64,10 @@ public class AgendamentosController {
 	   		else {
 	   			return false;
 	   		}
+	   		
+	   
+	
+	   		
 	   	}
 		
 	

@@ -25,17 +25,20 @@ import controllers.TemasController;
 import models.Client;
 import models.Temas;
 import services.TXTService;
+import models.Agendamentos;
 import models.Agendar;
 import controllers.AgendamentosController;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import models.Historico;
 import controllers.historicoController;
+import controllers.AgendamentosController;
 
 public class InterfaceAgendar extends JFrame {
 
-	TXTService<Agendar> txtagendamento = new TXTService<>("agendamentos.txt");
-	AgendamentosController agendamentocontroller = new AgendamentosController(txtagendamento);
+	TXTService<Agendar> agendar = new TXTService<>("agendamentos.txt");
+	AgendamentosController agendamentocontroller = new AgendamentosController(agendar);
+	
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
