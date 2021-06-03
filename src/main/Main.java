@@ -1,16 +1,17 @@
 package main;
+import view.Main.*;
 import view.Client.InterfaceCadastroCliente;
 import view.Client.EditClientes;
-
 import java.awt.Window.Type;
 import java.util.Calendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import view.Temas.EditTemas;
 import view.Agendamentos.InterfaceAgendamentos;
+import view.Agendamentos.InterfaceAgendar;
 import view.Temas.InterfaceCadastroTemas;
 import view.Temas.EditTemas;
-import controllers.DescontoController;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -22,22 +23,22 @@ public class Main {
 			e.printStackTrace();
 		}
 	// InterfaceCadastroCliente cadastrarclientes = new InterfaceCadastroCliente();
-   //  cadastrarclientes.Start();
+    // cadastrarclientes.Start();
 		
 	//  EditClientes clientes = new EditClientes();
 	 // clientes.start();
 		
-	  //  InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
-	  //  agendamentos.Start();
+	   InterfaceAgendamentos agendamentos = new InterfaceAgendamentos();
+	   agendamentos.Start();
 	    	
 	 //  InterfaceCadastroTemas cadastrartemas = new InterfaceCadastroTemas();
 	//   cadastrartemas.Start();
 		
 	//	  EditTemas temas = new EditTemas();
 		//  temas.start();
-			
-	  DescontoController desc = new DescontoController();
-	  System.out.println(desc.desconto("4444444444444"));
+    
+     
+		
 		
 	}
 
