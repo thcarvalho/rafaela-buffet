@@ -1,6 +1,8 @@
 package view.Agendamentos;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
@@ -12,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
+import javax.security.sasl.Sasl;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -39,11 +42,11 @@ public class InterfaceAgendar extends JFrame {
 	private JComboBox<String> comboClientes;
 	private JComboBox<String> comboTemas;
 	private JButton Agendar;
-	private JButton Sair;
 	private JCalendar calendar_1;
 	private JFormattedTextField Endereco;
 	private JFormattedTextField horario;
 	private JLabel FundoTemas;
+	private JButton Sair;
 	
 
 	public void Start() {
@@ -69,7 +72,7 @@ public class InterfaceAgendar extends JFrame {
 		TXTService<Temas> txttemas = new TXTService<>("temas.txt");
 		TemasController temascontroller = new TemasController(txttemas);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 565, 561);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -139,12 +142,6 @@ public class InterfaceAgendar extends JFrame {
 		Agendar.setBounds(326, 447, 89, 23);
 		contentPane.add(Agendar);
 
-		Sair = new JButton("Sair");
-		Sair.setBounds(425, 447, 89, 23);
-		Sair.setForeground(Color.DARK_GRAY);
-		Sair.setBackground(SystemColor.controlHighlight);
-		contentPane.add(Sair);
-
 		calendar_1 = new JCalendar();
 		calendar_1.getYearChooser().getSpinner().setForeground(Color.LIGHT_GRAY);
 		calendar_1.getMonthChooser().getComboBox().setForeground(new Color(0, 0, 0));
@@ -160,6 +157,18 @@ public class InterfaceAgendar extends JFrame {
 	    Endereco = new JFormattedTextField();
 		Endereco.setBounds(73, 278, 424, 31);
 		contentPane.add(Endereco);
+		
+		Sair = new JButton("Sair");
+		Sair.setForeground(Color.DARK_GRAY);
+		Sair.setFont(new Font("Arial", Font.PLAIN, 14));
+		Sair.setBackground(SystemColor.controlHighlight);
+		Sair.setBounds(426, 447, 89, 23);
+		Sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			  System.exit(DO_NOTHING_ON_CLOSE);
+			}
+		});
+		contentPane.add(Sair);
 		
 		FundoTemas = new JLabel("New label");
 		Icon img = new ImageIcon("img/FundoAgendamento.png");

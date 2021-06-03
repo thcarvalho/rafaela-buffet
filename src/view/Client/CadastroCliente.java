@@ -34,9 +34,6 @@ public class CadastroCliente implements ActionListener {
 		if (cmd.equals("Cadastrar")) {
 			adicionar(CPF.getText(), Nome.getText(), Tel.getText(), Email.getText());
 		}
-		if (cmd.equals("Sair")) {
-			// ------Back Janela Inicial
-		}
 	}
 
 	public void adicionar(String CPF, String Nome, String Tel, String Email) {

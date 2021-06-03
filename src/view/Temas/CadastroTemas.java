@@ -32,11 +32,6 @@ public class CadastroTemas implements ActionListener {
 			adicionar(NomeTema.getText(), DescricaoTema.getText(), ValorTema.getText());
 			
 		}
-		if (cmd.equals("Sair")) {
-			// ------Back tela Principal
-			
-			
-		}
 
 	}
 

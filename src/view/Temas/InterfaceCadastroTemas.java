@@ -13,6 +13,8 @@ import javax.swing.JFormattedTextField;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InterfaceCadastroTemas extends JFrame {
 
@@ -20,11 +22,11 @@ public class InterfaceCadastroTemas extends JFrame {
 	private JPanel contentPane;
 	private JTextField Nome;
 	private JButton CadastrarTema;
-	private JButton SairTemas;
 	private JFormattedTextField ValorTema;
 	private JTextArea DescricaoTema;
 	private JLabel FundoTema;
-	
+	private JButton Sair;
+
 
 	public void Start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -42,7 +44,8 @@ public class InterfaceCadastroTemas extends JFrame {
 
 	
 	public InterfaceCadastroTemas() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 514, 493);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,12 +73,18 @@ public class InterfaceCadastroTemas extends JFrame {
 		CadastrarTema.setBounds(251, 380, 101, 23);
 		contentPane.add(CadastrarTema);
 		
-		SairTemas = new JButton("Sair");
-		SairTemas.setForeground(Color.DARK_GRAY);
-		SairTemas.setFont(new Font("Arial", Font.PLAIN, 14));
-		SairTemas.setBackground(SystemColor.controlHighlight);
-		SairTemas.setBounds(362, 380, 101, 23);
-		contentPane.add(SairTemas);
+		Sair = new JButton("Sair");
+		Sair.setForeground(Color.DARK_GRAY);
+		Sair.setFont(new Font("Arial", Font.PLAIN, 14));
+		Sair.setBackground(SystemColor.controlHighlight);
+		Sair.setBounds(354, 380, 101, 23);
+		Sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(DO_NOTHING_ON_CLOSE);
+			}
+		});
+		contentPane.add(Sair);
+		
 		
 		JLabel lblsifrao = new JLabel("R$");
 		lblsifrao.setFont(new Font("Arial", Font.PLAIN, 16));

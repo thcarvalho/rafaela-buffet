@@ -26,8 +26,8 @@ public class EditClientes extends JFrame {
 	private JTextArea InfoCliente;
 	private JComboBox <String> Cliente;
 	private JButton Excluir;
-	private JButton Sair;
 	private JLabel FundoExibirCliente;
+	private JButton Sair;
 
 	public void start() {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,7 +49,7 @@ public class EditClientes extends JFrame {
 		TXTService<Client> txtclient = new TXTService<>("client.txt");
 		ClientController clientcontroller = new ClientController(txtclient);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 514, 493);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -93,20 +93,19 @@ public class EditClientes extends JFrame {
 		Excluir.setBounds(240, 394, 89, 23);
 		contentPane.add(Excluir);
 		
-		
 		Sair = new JButton("Sair");
-		Sair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			  //-------Back Janela Inicial
-			}
-		});
-		
 		Sair.setForeground(Color.DARK_GRAY);
 		Sair.setFont(new Font("Arial", Font.PLAIN, 14));
 		Sair.setBackground(SystemColor.controlHighlight);
-		Sair.setBounds(351, 394, 89, 23);
+		Sair.setBounds(345, 394, 89, 23);
+		Sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(DO_NOTHING_ON_CLOSE);
+			}
+		});
 		contentPane.add(Sair);
-
+		
+		
 		
 		FundoExibirCliente = new JLabel("");
 		Icon img = new ImageIcon("img/VisualizarClientes.png");

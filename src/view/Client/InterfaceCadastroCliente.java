@@ -24,8 +24,8 @@ public class InterfaceCadastroCliente extends JFrame {
 	private JFormattedTextField Email;
 	private JFormattedTextField Tel;
 	private JButton Cadastrar;
-	private JButton Sair;
 	private JLabel FundoCliente;
+	private JButton Sair;
 	
 
 	public void Start(){
@@ -45,7 +45,7 @@ public class InterfaceCadastroCliente extends JFrame {
 
 	public InterfaceCadastroCliente() {
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 514, 493);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,15 +86,16 @@ public class InterfaceCadastroCliente extends JFrame {
 		
 		Sair = new JButton("Sair");
 		Sair.setForeground(Color.DARK_GRAY);
+		Sair.setFont(new Font("Arial", Font.PLAIN, 14));
 		Sair.setBackground(SystemColor.controlHighlight);
+		Sair.setBounds(335, 356, 101, 23);
 		Sair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.exit(DO_NOTHING_ON_CLOSE);
 			}
 		});
-		Sair.setFont(new Font("Arial", Font.PLAIN, 14));
-		Sair.setBounds(348, 356, 93, 23);
 		contentPane.add(Sair);
-	
+		
 		FundoCliente = new JLabel("");
 		FundoCliente.setBackground(SystemColor.menu);
 		Icon img = new ImageIcon("img/CadastroCliente.jpg");
